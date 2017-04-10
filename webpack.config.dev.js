@@ -8,6 +8,8 @@ export default {
   },
   devtool: 'inline-source-map',
   entry:  {
+     reactHotReload:'react-hot-loader/patch',
+     webpackHotReload: 'webpack-hot-middleware/client?reload=true',
      vendor: path.resolve(__dirname, 'src/vendor'),
      main: path.resolve(__dirname, 'src/app/index'),
 
@@ -27,11 +29,13 @@ export default {
     new htmlWebpackPlugin({
       template: 'src/index.html',
       inject:true
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoEmitOnErrorsPlugin()
   ],
   module:{
     loaders:[
-      {test:/\.js$/, exclude:/node_modules/, loaders:['babel-loader']},
+      {test: /\.jsx?$/, exclude: /node_modules/, loaders: ['babel-loader']},
       {test:/\.css$/, loaders:['style-loader', 'css-loader']}
     ]
   }

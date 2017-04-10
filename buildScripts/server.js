@@ -7,7 +7,7 @@ import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
 import webpackDevMiddleware from 'webpack-dev-middleware';
-
+import webpackHotMiddleware from 'webpack-hot-middleware';
 
 
 const port = 3000;
@@ -19,6 +19,8 @@ app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath
 }));
 
+
+app.use(webpackHotMiddleware(compiler));
 
 app.get('/', (req, res)=>{
 

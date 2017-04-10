@@ -1,4 +1,8 @@
 /* eslint-disable no-unused-vars */
 
-import react from 'react';
-import reactDOM from 'react-dom';
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+
+
+export {React, ReactDOM}
