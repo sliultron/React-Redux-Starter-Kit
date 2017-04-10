@@ -1,0 +1,24 @@
+{
+  "name": "react-redux-starter-kit",
+  "version": "1.0.0",
+  "description": "Basic setup for web app with React and Redux",
+  "main": "index.js",
+  "scripts": {
+    "server": "node buildScripts/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sliultron/React-Redux-Starter-Kit.git"
+  },
+  "author": "Sean Li",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sliultron/React-Redux-Starter-Kit/issues"
+  },
+  "homepage": "https://github.com/sliultron/React-Redux-Starter-Kit#readme",
+  "devDependencies": {
+    "express": "^4.15.2",
+    "open": "0.0.5"
+  }
+}
