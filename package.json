@@ -4,9 +4,9 @@
   "description": "Basic setup for web app with React and Redux",
   "main": "index.js",
   "scripts": {
-    "prestart": "node buildScripts/startMessage.js",
+    "prestart": "babel-node buildScripts/startMessage.js",
     "start": "npm run server",
-    "server":"node buildScripts/server.js",
+    "server": "babel-node buildScripts/server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,6 +20,11 @@
   },
   "homepage": "https://github.com/sliultron/React-Redux-Starter-Kit#readme",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.24.1",
+    "babel-preset-env": "^1.3.3",
+    "babel-preset-react": "^6.24.1",
+    "babel-register": "^6.24.1",
     "chalk": "^1.1.3",
     "express": "^4.15.2",
     "open": "0.0.5"
