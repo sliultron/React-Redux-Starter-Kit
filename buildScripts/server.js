@@ -1,9 +1,13 @@
+/*eslint-disable no-console*/
+
+
 import express from 'express';
 import path from 'path';
 import open from 'open';
 import webpack from 'webpack';
 import config from '../webpack.config.dev';
 import webpackDevMiddleware from 'webpack-dev-middleware';
+
 
 
 const port = 3000;
