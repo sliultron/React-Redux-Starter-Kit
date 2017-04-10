@@ -1,20 +1,34 @@
 import path from 'path';
+import htmlWebpackPlugin from 'html-webpack-plugin';
+import webpack from 'webpack';
 
 export default {
   resolve: {
     extensions: ['*', '.js', '.jsx', '.json']
   },
   devtool: 'inline-source-map',
-  entry: [
-      path.resolve(__dirname, 'src/app/index')
-  ],
+  entry:  {
+     vendor: path.resolve(__dirname, 'src/vendor'),
+     main: path.resolve(__dirname, 'src/app/index'),
+
+  },
   target: 'web',
   output: {
     path:path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename:'bundle.js'
+    filename:'[name].js'
   },
-  plugins:[],
+  plugins:[
+      //create a separate bundle
+    new webpack.optimize.CommonsChunkPlugin({
+      name: 'vendor'
+    }),
+     //create html file with the bundle files
+    new htmlWebpackPlugin({
+      template: 'src/index.html',
+      inject:true
+    })
+  ],
   module:{
     loaders:[
       {test:/\.js$/, exclude:/node_modules/, loaders:['babel-loader']},
