@@ -1,0 +1,51 @@
+h1 {
+    color:#333;
+}
+span.number {
+    border-radius:50%;
+    display:inline-block;
+    width:1.5em;
+
+    background-color:#aaa;
+    cursor:pointer;
+    margin:0 1em 1em;
+
+    font-size: 1.5em;
+
+}
+
+span.selected {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+
+span.used {
+  background-color: green;
+  color: #eee;
+  cursor: not-allowed;
+}
+
+.glyphicon {
+  margin: 0 0.5em;
+  font-size:2em;
+}
+
+.panel {
+  border:1px solid #ddd;
+  padding-bottom:0;
+  padding-top:1em;
+  margin-top:5em;
+}
+button.btn-default::after{
+   content:'\003D';
+}
+
+
+button.btn-success::after{
+     content:'\2714'
+}
+
+button.btn-danger::after{
+     content:'\274C'
+}
