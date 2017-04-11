@@ -15,7 +15,7 @@ const Header = (props) => {
               </ul>
 
             <ul className="nav navbar-nav navbar-right">
-                  <li>    {props.user.username}</li>
+                  <li><a>{props.user.username}</a></li>
               </ul>
           </div>
         </nav>
