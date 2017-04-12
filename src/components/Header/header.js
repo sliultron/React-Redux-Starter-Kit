@@ -28,7 +28,7 @@ const Header = (props) => {
 
 Header.propTypes ={
     user: PropTypes.object
-}
+};
 
 
 export default Header;

@@ -8,8 +8,7 @@ export default {
   },
   devtool: 'inline-source-map',
   entry:  {
-     webpackPublicPath:'./src/webpack-public-path',
-
+     __webpack_public_path__:'./src/webpack-public-path',
      webpackHotReload: 'webpack-hot-middleware/client?reload=true',
       reactHotReloadPatch:'react-hot-loader/patch',
      vendor: path.resolve(__dirname, 'src/vendor'),
@@ -18,9 +17,14 @@ export default {
   },
   target: 'web',
   output: {
-    path:path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
     filename:'[name].js'
+  },
+  devServer:{
+    hot:true,
+    publicPath: '/',
+    historyApiFallback:true
   },
   plugins:[
       //create a separate bundle

@@ -18,12 +18,9 @@ app.use(compression());
 
 app.use(express.static('dist'));
 
-
-
 app.get('/', (req, res)=>{
    res.sendfile(path.join(__dirname,'../dist/index.html'));
 });
-
 
 app.listen(port, err =>{
      if(err){

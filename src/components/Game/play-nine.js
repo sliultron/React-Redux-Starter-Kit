@@ -1,5 +1,7 @@
 import React from 'react';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
+
 
 const Stars = (props)=>{
     return (
@@ -11,6 +13,11 @@ const Stars = (props)=>{
 };
 
 
+Stars.propTypes ={
+    numberOfStars: PropTypes.number.isRequired
+}
+
+
 const Button = (props) => {
     const buttonClassName = ()=>{
 
@@ -19,22 +26,19 @@ const Button = (props) => {
         }
 
         return 'btn btn-default';
-    }
+    };
 
     let button;
     switch(props.isAnswerCorrect)
     {
       case true:
-                button =
-           <button className ="btn btn-success" onClick={props.commitAnswer}></button>;
+        button = <button className ="btn btn-success" onClick={props.commitAnswer}></button>
         break;
       case false:
-                button =
-           <button className ="btn btn-danger" disabled></button>;
+        button = <button className ="btn btn-danger" disabled></button>
         break;
       default:
-        button =
-           <button className ="btn btn-default" disabled></button>;
+        button = <button className ="btn btn-default" disabled></button>
         break;
     }
 
@@ -44,7 +48,7 @@ const Button = (props) => {
         {button}
 
       </div>
-    )
+    );
 };
 
 
@@ -56,7 +60,13 @@ const Answer = (props)=>{
          <span className="number text-center " key={i} onClick={()=>props.unselectNumber(number)}>{number}</span>
         )}
         </div>
-    )
+    );
+};
+
+
+
+Answer.propTypes ={
+    selectedNumbers: PropTypes.array
 }
 
 const Numbers = (props)=>{
@@ -68,7 +78,7 @@ const Numbers = (props)=>{
         else
           return "";
 
-    }
+    };
 
 
     return (
@@ -80,15 +90,17 @@ const Numbers = (props)=>{
             </div>
         </div>
     );
-}
+};
+
+
 
 Numbers.list =  _.range(1,10);
 
-class Game extends React.Component {
+class PlayNine extends React.Component {
     static generateRandomNumber = ()=>1 + Math.floor(Math.random() * 9);
     state = {
         selectedNumbers: [],
-        randomNumberOfStars: Game.generateRandomNumber(),
+        randomNumberOfStars: PlayNine.generateRandomNumber(),
         usedNumbers: [],
         isAnswerCorrect: null,
         gameStatus: 'Start'
@@ -120,7 +132,7 @@ class Game extends React.Component {
            selectedNumbers : [],
            usedNumbers: prevState.usedNumbers.concat(prevState.selectedNumbers),
            isAnswerCorrect:null,
-           randomNumberOfStars: Game.generateRandomNumber()
+           randomNumberOfStars: PlayNine.generateRandomNumber()
       }), this.determinGameResult);
 
 
@@ -138,7 +150,7 @@ class Game extends React.Component {
          this.setState(prevState=>({
            selectedNumbers : [],
            isAnswerCorrect:null,
-           randomNumberOfStars: Game.generateRandomNumber()
+           randomNumberOfStars: PlayNine.generateRandomNumber()
       }));
     };
 
@@ -156,7 +168,7 @@ class Game extends React.Component {
 
          this.setState(prevState=>({
                 selectedNumbers: [],
-                randomNumberOfStars: Game.generateRandomNumber(),
+                randomNumberOfStars: PlayNine.generateRandomNumber(),
                 usedNumbers: [],
                 isAnswerCorrect: null,
                 gameStatus: 'Start'
@@ -197,21 +209,23 @@ class Game extends React.Component {
            </div>
            </div>
 
-       )
+       );
      }
 }
 
 
 
-class PlayNineGame extends React.Component {
+class Game extends React.Component {
 
      render(){
        return(
           <div>
-            <Game />
+            <PlayNine />
          </div>
-       )
+       );
      }
 }
 
-export default PlayNineGame;
+
+
+export default Game;
