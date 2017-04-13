@@ -2,17 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Header from './Header/header';
 import {connect} from 'react-redux';
-import userActions from '../actions/userActions'
+import userActions from '../actions/userActions';
 
  class App extends React.Component {
 
-   fetchUser = ()=>{
-       this.props.fetchUser({username: 'creator'});
-   };
 
   componentWillMount = ()=>{
     this.fetchUser();
   };
+
+  fetchUser = ()=>{
+       this.props.fetchUser({username: 'creator'});
+   };
 
    render(){
      return (
@@ -26,7 +27,9 @@ import userActions from '../actions/userActions'
 
 
 App.propTypes = {
-  children: PropTypes.element
+  children: PropTypes.element,
+  fetchUser: PropTypes.func,
+  user: PropTypes.object
 };
 
 
@@ -39,7 +42,7 @@ const mapStateToProps = (state, ownProps)=>{
 const mapDispatchToProps = (dispatch) => {
    return {
        fetchUser: user => dispatch(userActions.fetchUser(user))
-   }
-}
+   };
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

@@ -11,7 +11,8 @@ const Header = (props) => {
             <div className="container-fluid">
               <ul className ="nav navbar-nav">
                   <li><IndexLink to="/">Home</IndexLink></li>
-                    <li><Link to="/Game">Game</Link></li>
+                    <li><Link to="/game">Game</Link></li>
+                      <li><Link to="/demo">Demo</Link></li>
               </ul>
 
             <ul className="nav navbar-nav navbar-right">

@@ -7,7 +7,8 @@ const Stars = (props)=>{
     return (
        <div className="col-sm-5">
           {_.range(props.numberOfStars)
-            .map(i=><span key={i} className="glyphicon glyphicon-star" aria-hidden="true"></span>)}
+            .map(i=><span key={i} className="glyphicon glyphicon-star" aria-hidden="true"></span>)
+          }
       </div>
     );
 };
@@ -50,6 +51,13 @@ const Button = (props) => {
       </div>
     );
 };
+
+
+Button.propTypes ={
+    selectedNumbers: PropTypes.array,
+    isAnswerCorrect: PropTypes.bool
+};
+
 
 
 const Answer = (props)=>{
@@ -200,7 +208,7 @@ class PlayNine extends React.Component {
               <div className="col-12 text-center">
                  <h1>{this.state.gameStatus}</h1>
 
-                <button onClick={this.resetGame} className="btn btn-primary">Play Again</button>
+                <button onClick={this.resetGame} className="btn btn-primary">Play Again!</button>
   <br />
                 <button className="btn btn-warning" onClick={this.refreshStars}>
                   <span className="glyphicon glyphicon-refresh"> </span>

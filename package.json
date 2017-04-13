@@ -6,7 +6,7 @@
   "scripts": {
     "prestart": "babel-node buildScripts/startMessage.js",
     "start": "npm-run-all --parallel server lint:watch",
-    "server": "babel-node buildScripts/server.js",
+    "server": "babel-node buildScripts/devServer.js",
     "webpack": "babel-node webpack --config webpack.config.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "esw webpack.config.* src buildScripts",
@@ -55,7 +55,8 @@
     "webpack": "^2.3.3",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-hot-middleware": "^2.18.0",
-    "webpack-md5-hash": "0.0.5"
+    "webpack-md5-hash": "0.0.5",
+    "webpack-merge": "^4.1.0"
   },
   "dependencies": {
     "babel-polyfill": "^6.23.0",
