@@ -30,7 +30,13 @@
     "moduleFileExtensions": [
       "js"
     ],
-    "collectCoverage": true
+    "collectCoverage": true,
+    "unmockedModulePathPatterns":[
+      "react",
+      "lodash",
+      "prop-types",
+      "react-dom"
+    ]
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
