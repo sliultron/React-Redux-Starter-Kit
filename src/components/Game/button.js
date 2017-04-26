@@ -17,13 +17,13 @@ const Button = (props) => {
     switch(props.isAnswerCorrect)
     {
       case true:
-        button = <button className ="btn btn-success" onClick={props.commitAnswer}></button>
+        button = <button className ="btn btn-success" onClick={props.commitAnswer}/> ;
         break;
       case false:
-        button = <button className ="btn btn-danger" disabled></button>
+        button = <button className ="btn btn-danger" disabled/> ;
         break;
       default:
-        button = <button className ="btn btn-default" disabled></button>
+        button = <button className ="btn btn-default" disabled/> ;
         break;
     }
 
@@ -39,7 +39,8 @@ const Button = (props) => {
 
 Button.propTypes ={
     selectedNumbers: PropTypes.array,
-    isAnswerCorrect: PropTypes.bool
+    isAnswerCorrect: PropTypes.bool,
+    commitAnswer: PropTypes.func
 };
 
 export default Button;

@@ -13,6 +13,7 @@ const ComponentContainer = (props)=>{
 ComponentContainer.propTypes = {
     className: PropTypes.string,
     title: PropTypes.string,
+    children: PropTypes.element
 };
 
 export default ComponentContainer;

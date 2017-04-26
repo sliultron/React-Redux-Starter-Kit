@@ -9,7 +9,7 @@ import Stars from '../../src/components/game/stars';
 
 
 describe("The Game Component Tests",function(){
-    it("should render 5 stars", function(){
+    it("set number of stars to be 5, should render 5 stars", function(){
           let numberOfStars = 5;
           let element  = ReactTestUtils.renderIntoDocument(
             <div>

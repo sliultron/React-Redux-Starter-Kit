@@ -16,6 +16,6 @@ const Answer = (props)=>{
 
 Answer.propTypes ={
     selectedNumbers: PropTypes.array
-}
+};
 
 export default Answer;

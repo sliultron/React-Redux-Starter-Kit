@@ -119,7 +119,7 @@ class PlayNine extends React.Component {
                 <button onClick={this.resetGame} className="btn btn-primary">Play Again!</button>
   <br />
                 <button className="btn btn-warning" onClick={this.refreshStars}>
-                  <span className="glyphicon glyphicon-refresh"> </span>
+                  <span className="glyphicon glyphicon-refresh" />
                 </button>
               </div>
            </div>
