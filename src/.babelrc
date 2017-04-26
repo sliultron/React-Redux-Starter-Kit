@@ -4,5 +4,11 @@
     "presets": [
         ["env",{"modules": false}],
         "react"
-    ]
+    ],
+    "env": {
+        "test": {
+             "presets": ["env", "react"],
+              "plugins": [ "transform-class-properties"]
+        }
+    }
 }

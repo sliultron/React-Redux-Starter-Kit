@@ -1,21 +1,26 @@
-jest.unmock("../../src/components/game/stars");
+
+jest.unmock('../../src/components/game/stars');
 
 
-
-import TestUtils from 'react-dom/test-utils';
+import ReactDOM from 'react-dom';
+import ReactTestUtils from 'react-dom/test-utils';
 import React from 'react';
-import Stars from "../../src/components/game/stars";
+import Stars from '../../src/components/game/stars';
+
 
 describe("The Game Component Tests",function(){
     it("should render 5 stars", function(){
-        
+          let numberOfStars = 5;
+          let element  = ReactTestUtils.renderIntoDocument(
+            <div>
+              <Stars numberOfStars={numberOfStars} />
+            </div>
+          );
 
-         let stars = TestUtils.renderIntoDocument(
-             <Stars numberOfStars={5} />
-         );
-         
-         let spans =  TestUtils.findRenderedDOMComponentWithTag(stars, "span");
+          let stars = ReactDOM.findDOMNode(element).children[0];
 
-         expect(spans.length).toEqual(5);
+          let spans = stars.childNodes;
+
+          expect(spans.length).toEqual(numberOfStars);
     });
 });
