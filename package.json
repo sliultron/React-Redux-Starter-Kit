@@ -8,7 +8,7 @@
     "start": "npm-run-all --parallel server lint:watch",
     "server": "babel-node buildScripts/devServer.js",
     "webpack": "babel-node webpack --config webpack.config.dev.js",
-    "test": "jest",
+    "test": "jest --no-cache",
     "lint": "esw webpack.config.* src buildScripts",
     "lint:watch": "npm run lint --watch",
     "clean-dist": "rimraf ./dist && mkdir dist",
@@ -27,6 +27,13 @@
   },
   "homepage": "https://github.com/sliultron/React-Redux-Starter-Kit#readme",
   "jest": {
+  
+    "unmockedModulePathPatterns": [
+      "react",
+      "prop-types",
+      "lodash",
+      "react-dom"
+    ],
     "moduleFileExtensions": [
       "js"
     ],
@@ -59,6 +66,7 @@
     "jest-cli": "^19.0.2",
     "npm-run-all": "^4.0.2",
     "open": "0.0.5",
+    "regenerator-runtime": "^0.10.3",
     "style-loader": "^0.16.1",
     "url-loader": "^0.5.8",
     "webpack": "^2.3.3",

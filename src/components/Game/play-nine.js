@@ -1,108 +1,16 @@
 import React from 'react';
-import _ from 'lodash';
 import PropTypes from 'prop-types';
 
+import _ from 'lodash';
 
-const Stars = (props)=>{
-    return (
-       <div className="col-sm-5">
-          {_.range(props.numberOfStars)
-            .map(i=><span key={i} className="glyphicon glyphicon-star" aria-hidden="true"></span>)
-          }
-      </div>
-    );
-};
+import Stars from './stars';
 
+import Button from './button';
 
-Stars.propTypes ={
-    numberOfStars: PropTypes.number.isRequired
-}
+import Answer from './answer';
 
+import Numbers from './numbers';
 
-const Button = (props) => {
-    const buttonClassName = ()=>{
-
-        if(props.selectedNumbers.length > 0){
-          return props.isAnswerCorrect? "btn btn-success" : 'btn btn-danger';
-        }
-
-        return 'btn btn-default';
-    };
-
-    let button;
-    switch(props.isAnswerCorrect)
-    {
-      case true:
-        button = <button className ="btn btn-success" onClick={props.commitAnswer}></button>
-        break;
-      case false:
-        button = <button className ="btn btn-danger" disabled></button>
-        break;
-      default:
-        button = <button className ="btn btn-default" disabled></button>
-        break;
-    }
-
-
-    return (
-       <div className="col-sm-2">
-        {button}
-
-      </div>
-    );
-};
-
-
-Button.propTypes ={
-    selectedNumbers: PropTypes.array,
-    isAnswerCorrect: PropTypes.bool
-};
-
-
-
-const Answer = (props)=>{
-
-    return (
-        <div className="col-sm-5">
-            {props.selectedNumbers.map((number,i)=>
-         <span className="number text-center " key={i} onClick={()=>props.unselectNumber(number)}>{number}</span>
-        )}
-        </div>
-    );
-};
-
-
-
-Answer.propTypes ={
-    selectedNumbers: PropTypes.array
-}
-
-const Numbers = (props)=>{
-    const numberClassName = (number)=>{
-        if(props.selectedNumbers.indexOf(number) >=0)
-          return "selected";
-        else if(props.usedNumbers.indexOf(number) >=0)
-          return "used";
-        else
-          return "";
-
-    };
-
-
-    return (
-       <div className="panel">
-            <div className="text-center">
-              {Numbers.list.map((number, i)=>
-                 <span className={"number text-center "+ numberClassName(number)} key={i} onClick={()=>props.selectNumber(number)}>{number}</span>
-              )}
-            </div>
-        </div>
-    );
-};
-
-
-
-Numbers.list =  _.range(1,10);
 
 class PlayNine extends React.Component {
     static generateRandomNumber = ()=>1 + Math.floor(Math.random() * 9);
@@ -222,18 +130,6 @@ class PlayNine extends React.Component {
 }
 
 
-
-class Game extends React.Component {
-
-     render(){
-       return(
-          <div>
-            <PlayNine />
-         </div>
-       );
-     }
-}
+export default PlayNine;
 
 
-
-export default Game;
